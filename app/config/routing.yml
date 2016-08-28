@@ -1,0 +1,5 @@
+
+tfe_admin:
+    resource: "@TfeAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+

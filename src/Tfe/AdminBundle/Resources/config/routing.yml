@@ -1,0 +1,3 @@
+tfe_admin_homepage:
+    path:     /
+    defaults: { _controller: TfeAdminBundle:Default:index }
