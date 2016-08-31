@@ -1,3 +1,7 @@
 tfe_admin_homepage:
     path:     /
     defaults: { _controller: TfeAdminBundle:Default:index }
+
+tfe_admin_user_list:
+    path:     /list_users
+    defaults: { _controller: TfeAdminBundle:Users:index }

@@ -28,15 +28,12 @@ security:
 
           # login success redirecting options (read further below)
           always_use_default_target_path: true
-          #default_target_path:   /plateforme-sociale/publications
+          default_target_path:   /administration/list_users
 
 
 
       logout: true
       anonymous: true
-
-
-
 
     login:
         pattern:  ^/login/
