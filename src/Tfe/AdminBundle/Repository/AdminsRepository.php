@@ -2,6 +2,8 @@
 
 namespace Tfe\AdminBundle\Repository;
 
+use Doctrine\ORM\Query\ResultSetMapping;
+
 /**
  * AdminsRepository
  *
@@ -10,4 +12,28 @@ namespace Tfe\AdminBundle\Repository;
  */
 class AdminsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function FindUsersAscAll()
+    {
+        /*$qb = $this->createQueryBuilder('a');
+        $qb->orderBy('a.username', 'ASC');
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;*/
+        /*$rsm = new ResultSetMapping();
+        $rsm->addEntityResult('Users', 'u');
+        $rsm->addFieldResult('u', 'username', 'username');
+        $rsm->addFieldResult('u', 'id', 'id');
+        $rsm->addFieldResult('u', 'enabled', 'enabled');
+        $query = $this->_em->createNativeQuery('SELECT * FROM tfe_users ORDER BY username ASC', $rsm);
+
+          $query = $entityManager->createNativeQuery
+
+        // Utilisation de getSingleResult car la requête ne doit retourner qu'un seul résultat
+        return $query->getResult();
+
+        /*$userManager     = $this->getDoctrine()->getManager();
+        $sql = "SELECT  * FROM tfe_users ORDER BY username ASC";
+        $users = $userManager->getConnection()->prepare($sql);$users->execute();*/
+    }
 }

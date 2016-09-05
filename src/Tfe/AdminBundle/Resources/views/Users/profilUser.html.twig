@@ -1,0 +1,134 @@
+{% extends "TfeCoreBundle:Default:index.html.twig" %}
+
+{% block title %}
+    Communauté - {{ parent() }}
+{% endblock %}
+
+
+
+{% block body %}
+
+    {% trans_default_domain 'FOSUserBundle' %}
+    {% for users in user %}
+    <div class="fos_user_user_show">
+        <div class="panel panel-info" style="margin-bottom: 10px">
+            <div class="panel-heading">{{ 'profile.show.username'|trans }}</div>
+            <div class="panel-body">
+                {{ users.username }}
+            </div>
+        </div>
+        {% if users.email is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.email'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.email }}
+                </div>
+            </div>
+        {% endif %}
+        {#{% if user.imageFile is not empty %}
+            <div class="panel panel-info" style="margin-bottom: 10px">
+                <div class="panel-heading ">avatar</div>
+                <div class="panel-body ">
+                    <img src="{{ vich_uploader_asset(user, 'imageFile') }}" alt="{{ user.imageName }}" width="250px" height="250px"/>
+                </div>
+            </div>
+        {% endif %}#}
+        {% if users.name is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.name'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.name }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.firstname is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.firstname'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.firstname }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.age is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.age'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.age }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.gender is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.gender'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.gender }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.country is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.country'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.country }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.language is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.language'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.language }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.web_site is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.web_site'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.web_site }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.facebook_account is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.facebook_account'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.facebook_account }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.twitter_account is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.twitter_account'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.twitter_account }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.description_user is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.description_user'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.description_user }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.signature is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.signature'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.signature }}
+                </div>
+            </div>
+        {% endif %}
+        {% if users.read_level is not empty %}
+            <div class="panel panel-info " style="margin-bottom: 10px">
+                <div class="panel-heading ">{{ 'profile.show.read_level'|trans }}</div>
+                <div class="panel-body ">
+                    {{ users.read_level }}
+                </div>
+            </div>
+        {% endif %}
+{% endfor %}
+    </div>
+{% endblock %}

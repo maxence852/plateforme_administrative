@@ -5,3 +5,7 @@ tfe_admin_homepage:
 tfe_admin_user_list:
     path:     /list_users
     defaults: { _controller: TfeAdminBundle:Users:index }
+
+tfe_admin_user_profil:
+    path : /profil/{id}
+    defaults: { _controller: TfeAdminBundle:Users:profil }
