@@ -9,3 +9,11 @@ tfe_admin_user_list:
 tfe_admin_user_profil:
     path : /profil/{id}
     defaults: { _controller: TfeAdminBundle:Users:profil }
+
+tfe_admin_user_account_descact:
+    path : /desactiver/{id}
+    defaults: { _controller: TfeAdminBundle:Users:desactivationCompte }
+
+tfe_admin_user_account_activation:
+    path : /activer/{id}
+    defaults: { _controller: TfeAdminBundle:Users:activationCompte }

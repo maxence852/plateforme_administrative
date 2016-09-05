@@ -2,13 +2,13 @@
 {% extends "TfeCoreBundle:Default:index.html.twig" %}
 
 {% block body %}
-    <h2>Futur liste des utilisateurs</h2>
 
     <table class="table table-hover">
         <thead>
         <tr>
             <th>Pseudo</th>
             <th>Voir Profil</th>
+            <th>Statut Compte</th>
 
         </tr>
         </thead>
@@ -19,8 +19,14 @@
             <td>
                 <a class="btn btn-primary" href="{{ path('tfe_admin_user_profil', {'id': user.id}) }}">Profil</a>
             </td>
-
-
+            <td>
+                {% if user.locked == FALSE %}
+                <a class="btn btn-danger" href="{{ path('tfe_admin_user_account_descact', {'id': user.id}) }}">Désactiver</a>
+                {% endif %}
+                {% if user.locked == TRUE %}
+                <a class="btn btn-primary" href="{{ path('tfe_admin_user_account_activation', {'id': user.id}) }}">Activer</a>
+                    {% endif %}
+            </td>
         </tr>
         </tbody>
         <tbody>

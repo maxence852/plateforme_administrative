@@ -25,18 +25,30 @@ class UsersController extends Controller
         $userManager     = $this->getDoctrine()->getManager();
         $sql = "SELECT  * FROM tfe_users WHERE id = '$id'";
         $user = $userManager->getConnection()->prepare($sql);$user->execute();
-        /*$em     = $this->getDoctrine()->getManager();
-        $user = $em->find('\..\..\..\..\..\plateforme_sociale\src\Tfe\UserBundle\Entity', $id);*/
 
-        /*$user = new User();
-        $user->getUsername($id);
-        $user->getName($id);*/
-
-        //$userManager = $this->get('fos_user.user_manager');
-        //$user = $userManager->find($id);
         return $this->render('TfeAdminBundle:Users:profilUser.html.twig', array(
             'user'=> $user
 
         ));
+    }
+
+    public function desactivationCompteAction($id)
+    {
+        $userManager     = $this->getDoctrine()->getManager();
+        $sql = "UPDATE tfe_users SET locked = TRUE WHERE id = '$id'";
+        $user = $userManager->getConnection()->prepare($sql);$user->execute();
+
+
+        return $this->redirectToRoute('tfe_admin_user_list');
+    }
+
+    public function activationCompteAction($id)
+    {
+        $userManager     = $this->getDoctrine()->getManager();
+        $sql = "UPDATE tfe_users SET locked = FALSE WHERE id = '$id'";
+        $user = $userManager->getConnection()->prepare($sql);$user->execute();
+
+
+        return $this->redirectToRoute('tfe_admin_user_list');
     }
 }
