@@ -2,21 +2,31 @@
 
 namespace Tfe\AdminBundle\Controller;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class UsersController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        /*$repository = $this ->getDoctrine()->getManager()->getRepository('TfeAdminBundle:Admins');
-        $users= $repository->FindUsersAscAll();*/
+
         $userManager     = $this->getDoctrine()->getManager();
         $sql = "SELECT  * FROM tfe_users ORDER BY username ASC";
         $users = $userManager->getConnection()->prepare($sql);$users->execute();
 
+        /*$paginator  = $this->get('knp_paginator');
+        $users = $paginator->paginate(
+            $users,
+            $request->query->getInt('page', 1),
+            5
+        );*/
         return $this->render('TfeAdminBundle:Users:listeUsers.html.twig',array(
-            'users'=> $users
+            'users'=> $users,
+            //'paginator'=> $paginator,
+
+
         ));
     }
 

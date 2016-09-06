@@ -1,0 +1,29 @@
+{% extends "TfeCoreBundle:Default:index.html.twig" %}
+
+{% block title %}
+    Statistique - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h2> Quelques statistiques</h2>
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nombres total d'utilisateurs</th>
+                <th>Nombres total de publications</th>
+                <th>Nombres total de commentaires</th>
+            </tr>
+        </thead>
+         <tbody>
+            <tr>
+
+                <td>{{ nbUsers3 }}</td>
+
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </tbody>
+
+{% endblock %}

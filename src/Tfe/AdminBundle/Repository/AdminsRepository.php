@@ -36,4 +36,14 @@ class AdminsRepository extends \Doctrine\ORM\EntityRepository
         $sql = "SELECT  * FROM tfe_users ORDER BY username ASC";
         $users = $userManager->getConnection()->prepare($sql);$users->execute();*/
     }
+    public function GetNbUsers($em)
+    {
+        $rsm = new ResultSetMapping($em);
+// build rsm here
+
+        $query = "SELECT COUNT(id) FROM tfe_users";
+        $query = $em->createNativeQuery($query, $rsm);
+        return $query
+            ->getResult();
+    }
 }

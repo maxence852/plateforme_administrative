@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Tfe\CoreBundle\TfeCoreBundle(),
             new Tfe\AdminBundle\TfeAdminBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
