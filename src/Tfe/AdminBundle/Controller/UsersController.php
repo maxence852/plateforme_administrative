@@ -12,19 +12,21 @@ class UsersController extends Controller
     public function indexAction(Request $request)
     {
 
-        $userManager     = $this->getDoctrine()->getManager();
+        /*$userManager     = $this->getDoctrine()->getManager();
         $sql = "SELECT  * FROM tfe_users ORDER BY username ASC";
-        $users = $userManager->getConnection()->prepare($sql);$users->execute();
+        $users = $userManager->getConnection()->prepare($sql);$users->execute();*/
+        $repository = $this ->getDoctrine()->getManager()->getRepository('TfeAdminBundle:Users');
+        $users= $repository->FindUsersAscAll();
 
-        /*$paginator  = $this->get('knp_paginator');
+        $paginator  = $this->get('knp_paginator');
         $users = $paginator->paginate(
             $users,
             $request->query->getInt('page', 1),
             5
-        );*/
+        );
         return $this->render('TfeAdminBundle:Users:listeUsers.html.twig',array(
             'users'=> $users,
-            //'paginator'=> $paginator,
+            'paginator'=> $paginator,
 
 
         ));

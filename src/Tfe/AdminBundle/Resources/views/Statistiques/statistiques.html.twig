@@ -13,16 +13,35 @@
             <tr>
                 <th>Nombres total d'utilisateurs</th>
                 <th>Nombres total de publications</th>
-                <th>Nombres total de commentaires</th>
+                <th>Nombres total de commentaires Forum</th>
+                <th>Nombres total de commentaires Publication</th>
             </tr>
         </thead>
          <tbody>
             <tr>
+                {% for admins in nbUsers %}
+                    {% for nb in admins %}
+                        <td>{{ nb }}</td>
+                    {% endfor %}
+                {% endfor %}
 
-                <td>{{ nbUsers3 }}</td>
+                 {% for admins in nbPublication %}
+                    {% for nb in admins %}
+                        <td>{{ nb }}</td>
+                    {% endfor %}
+                {% endfor %}
 
-                <td>2</td>
-                <td>3</td>
+                 {% for admins in nbCommentForum %}
+                    {% for nb in admins %}
+                        <td>{{ nb }}</td>
+                    {% endfor %}
+                {% endfor %}
+
+                {% for admins in nbCommentPublication %}
+                    {% for nb in admins %}
+                        <td>{{ nb }}</td>
+                    {% endfor %}
+                {% endfor %}
             </tr>
         </tbody>
 

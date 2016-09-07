@@ -41,7 +41,7 @@ class AdminsRepository extends \Doctrine\ORM\EntityRepository
         $rsm = new ResultSetMapping($em);
 // build rsm here
 
-        $query = "SELECT COUNT(id) FROM tfe_users";
+        $query = "SELECT COUNT(*) FROM tfe_users";
         $query = $em->createNativeQuery($query, $rsm);
         return $query
             ->getResult();
